@@ -12,8 +12,7 @@ import java.util.Locale;
 public class DogUtils {
 	
 	//return format  YYYYMMDD,20110119
-	public String getYYYYmmDD()
-	{
+	public String getYYYYmmDD(){
 		 Date date = new Date();
 		 SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd",Locale.US);
 		 return sdf.format(date);
