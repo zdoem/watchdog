@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+ 
+   <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+      <property name="prefix" value="/jsp/"/>
+      <property name="suffix" value=".jsp"/>
+  </bean>
+  
+<!-- ************declare mapping url *****************-->
+ 	 <bean id="WELCOME" class="com.dog.controller.WelcomePageController"/>
+ 	 <bean id="pathRegisterFORM" class="com.dog.controller.RegisterMembersDogControllerForm"/>
+
+<!--************ End example form processing***************** -->
+  	<bean name="/jsp/registerMembersForm.jsp"  class="com.dog.controller.RegisterMembersDogController">
+	    <property name="commandClass" value="com.dog.dao.MembersDog"/>
+	    <property name="formView" value="registerForm"/>
+	    <property name="successView" value="/welcome.dog"/>
+    </bean>
+   
+<!--*************** mapping url&name******************-->
+	<bean id="simpleUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+    <property name="mappings">
+      <props>
+         <prop key="/welcome.dog">WELCOME</prop>
+         <prop key="/registerForm.dog">/jsp/registerMembersForm.jsp</prop>
+         
+         <prop key="/registerForm.dog">pathRegisterFORM</prop>
+        
+      </props>
+    </property>
+  </bean>
+</beans>
+
+ <!--<bean id="REGISTER" class="com.dog.controller.RegisterMembersDogController" >
+    	<property name="formView" value="registerMembersForm"/>
+    	<property name="commandName" value="registerForm"/>
+    	<property name="successView" value="welcome"/>
+    	<property name="commandClass" value="com.dog.dao.MembersDog"/>
+        <property name="validator">
+      		<bean class="com.dog.validation.MembersDogValidator"/>
+    	</property>
+</bean>-->
+

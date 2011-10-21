@@ -1,0 +1,19 @@
+#Author by :pradoem wongkraso
+#date :2011-01-19
+#description : project for technical,issue,solve solution and trick
+#project name : Watchdog  name come from is Watch log
+
+#note: MySQL Database requirement below
+username:root
+password:root
+databasename:db_wathchdog
+
+Spring Framework(2.5) Technology Inc. 555+
+
+**************************************
+if you chose JNDI or Data source please move 
+commons-dbcp-1.4.jar
+mysql-connector-java-5.0.7-bin.jar
+to  Apache Tomcat Home lib folder ,Example path Tomcat home : c:/Server/Tomcat6.18/bin/lib
+or you can use JDBC connection normal 
+****************************************
